@@ -330,26 +330,62 @@ section {
 }
 
 .article-container {
-    display: flex;
-    text-align: initial;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: 2.5rem;
-    /*justify-content: space-around;*/
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+    align-items: flex-start;
 }
 
 article {
     display: flex;
-    /*width: 10rem;*/
-    /*justify-content: space-around;*/
     align-items: center;
     gap: 0.5rem;
-    width: calc(50% - 1.25rem);
+    min-width: 0;
+    padding: 0.5rem;
+    flex-grow: 1;
 }
 
 article .icon {
     cursor: default;
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+}
+
+article h3 {
+    font-size: 1rem;
+    margin: 0;
+}
+
+article p {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Responsive breakpoints for skills */
+@media (max-width: 1600px) {
+    .article-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1400px) {
+    .article-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1200px) {
+    .article-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .article-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
 }
 
 /* PROJECTS SECTION */
@@ -428,4 +464,12 @@ footer {
 
 footer p {
     text-align: center;
+}
+
+.text-container {
+    margin-bottom: 1.5rem;
+}
+
+.text-container p {
+    line-height: 1.6;
 }
